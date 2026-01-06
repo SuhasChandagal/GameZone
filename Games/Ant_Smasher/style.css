@@ -16,28 +16,39 @@ body {
   font-family: "Amatic SC", cursive;
 }
 
+/* =====================
+   HEADER & SCORE
+===================== */
 h1 {
   text-align: center;
   font-size: 10rem;
   line-height: 1;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 
 .score {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   padding: 0 3rem;
-  line-height: 1;
+  line-height: 1.2;
   border-radius: 1rem;
+  display: inline-block;
 }
 
+/* =====================
+   GAME BOARD
+===================== */
 .game {
   width: 600px;
   height: 400px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  position: relative;
 }
 
+/* =====================
+   HOLES
+===================== */
 .hole {
   flex: 1 0 33.33%;
   overflow: hidden;
@@ -46,8 +57,8 @@ h1 {
 
 .hole:after {
   display: block;
-  background: url(../../assets/images/Ant_Smasher_dirt.svg) bottom center
-    no-repeat;
+  background: url("../../assets/images/Ant_Smasher_dirt.svg")
+    bottom center no-repeat;
   background-size: contain;
   content: "";
   width: 100%;
@@ -55,18 +66,60 @@ h1 {
   position: absolute;
   z-index: 2;
   bottom: -30px;
+  pointer-events: none;
 }
 
+/* =====================
+   MOLE
+===================== */
 .mole {
-  background: url("../../assets/images/Ant_Smasher.png") bottom center no-repeat;
+  background: url("../../assets/images/Ant_Smasher.png")
+    bottom center no-repeat;
   background-size: 60%;
   position: absolute;
   top: 100%;
   width: 100%;
   height: 100%;
-  transition: all 0.4s;
+  cursor: pointer;
+  will-change: transform, top;
 }
 
+/* =====================
+   LEVEL SPEED CONTROL
+===================== */
+
+/* Easy: relaxed */
+.game.easy .mole {
+  transition: top 0.45s ease-out;
+}
+
+/* Medium: alert */
+.game.medium .mole {
+  transition: top 0.3s ease-out;
+}
+
+/* Hard: frantic */
+.game.hard .mole {
+  transition: top 0.18s linear;
+}
+
+/* =====================
+   MOLE POP-UP STATE
+===================== */
 .hole.up .mole {
   top: 0;
 }
+
+/* =====================
+   OPTIONAL VISUAL FEEDBACK
+===================== */
+
+/* Subtle danger tint on harder levels */
+.game.medium {
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.4);
+}
+
+.game.hard {
+  box-shadow: 0 0 25px rgba(255, 60, 60, 0.6);
+}
+s

@@ -3,35 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <title>Ant Smasher Game</title>
-  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700"
+    rel="stylesheet"
+    type="text/css"
+  >
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <h1>Ant Smasher<span class="score">0</span></h1>
-  <button onClick="startGame()" style="float:right;">Start</button>
+  <h1>
+    Ant Smasher
+    <span class="score">0</span>
+  </h1>
 
-  <div class="game">
+  <!-- Start button -->
+  <button onclick="startGame()" style="float:right;">
+    Start
+  </button>
+
+  <!-- Optional level buttons -->
+  <div style="text-align:center; margin-bottom:10px;">
+    <button onclick="startGame('easy')">Easy</button>
+    <button onclick="startGame('medium')">Medium</button>
+    <button onclick="startGame('hard')">Hard</button>
+  </div>
+
+  <!-- 👇 Default level class added -->
+  <div class="game easy">
+
     <div class="hole hole1">
       <div class="mole"></div>
     </div>
+
     <div class="hole hole2">
       <div class="mole"></div>
     </div>
+
     <div class="hole hole3">
       <div class="mole"></div>
     </div>
+
     <div class="hole hole4">
       <div class="mole"></div>
     </div>
+
     <div class="hole hole5">
       <div class="mole"></div>
     </div>
+
     <div class="hole hole6">
       <div class="mole"></div>
     </div>
+
   </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
